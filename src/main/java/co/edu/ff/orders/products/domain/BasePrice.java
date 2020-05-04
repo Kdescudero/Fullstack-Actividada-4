@@ -1,23 +1,24 @@
 package co.edu.ff.orders.products.domain;
 
 import co.edu.ff.orders.common.Preconditions;
-import co.edu.ff.orders.user.serialization.StringSerializable;
-import org.apache.commons.lang3.StringUtils;
+import co.edu.ff.orders.products.serialization.BigDecimalSerializable;
+import lombok.Value;
 
 import java.math.BigDecimal;
 
-public class BasePrice implements StringSerializable {
+@Value(staticConstructor = "of")
+public class BasePrice implements BigDecimalSerializable {
 
     BigDecimal value;
 
     public BasePrice(BigDecimal value){
         Preconditions.checkNotNull(value);
-        Preconditions.checkArgument(value.length() <= 280);
+        Preconditions.checkArgument(value.compareTo(BigDecimal.ZERO)> 0);
         this.value = value;
     }
 
     @Override
-    public String valueOf() {
+    public BigDecimal valueOf() {
         return value;
     }
 }

@@ -5,10 +5,10 @@ import com.google.gson.*;
 import java.lang.reflect.Type;
 import java.util.function.Function;
 
-public class StringValueAdapter<T extends StringSerializable> implements GsonAdapter<T> {
+public class StringAdapter<T extends StringSerializable> implements GsonAdapter<T> {
     private final Function<String, T> factory;
 
-    public StringValueAdapter(Function<String, T> factory) {
+    public StringAdapter(Function<String, T> factory) {
         this.factory = factory;
     }
 

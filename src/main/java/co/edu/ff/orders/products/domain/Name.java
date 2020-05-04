@@ -1,9 +1,11 @@
 package co.edu.ff.orders.products.domain;
 
 import co.edu.ff.orders.common.Preconditions;
-import co.edu.ff.orders.user.serialization.StringSerializable;
+import co.edu.ff.orders.products.serialization.StringSerializable;
+import lombok.Value;
 import org.apache.commons.lang3.StringUtils;
 
+@Value(staticConstructor = "of")
 public class Name implements StringSerializable {
     String value;
 

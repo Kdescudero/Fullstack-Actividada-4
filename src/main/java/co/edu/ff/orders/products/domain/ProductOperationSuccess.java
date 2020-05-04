@@ -1,4 +1,17 @@
 package co.edu.ff.orders.products.domain;
 
-public class ProductOperationSuccess {
+import lombok.Value;
+
+@Value(staticConstructor = "of")
+public class ProductOperationSuccess implements ProductOperation{
+    Product value;
+
+    @Override
+    public Product value() { return value; }
+
+    @Override
+    public String errorMessage() { return "El Producto se registro exitosamente"; }
+
+    @Override
+    public Boolean isValid() { return true; }
 }
